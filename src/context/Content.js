@@ -1,7 +1,14 @@
+import Card from "../components/Card";
+
 const Content = () => {
   return (
     <div className="content">
-      <section className="movies"></section>
+      <section className="movies">
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
+      </section>
     </div>
   );
 };

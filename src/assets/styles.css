@@ -30,6 +30,8 @@ body {
   box-sizing: inherit;
 }
 
+/*Toolbox styling*/
+
 a {
   text-decoration: none;
   color: white;
@@ -37,6 +39,18 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
 }
 
 /*Header Navigation Styling*/
@@ -62,7 +76,7 @@ a {
   align-items: center;
   font-size: 1.3rem;
   width: fit-content;
-  padding: 0.6em 0.4em;
+  padding: 1em 0;
 }
 
 .nav-logo img {
@@ -75,21 +89,70 @@ a {
 
 .content {
   background-color: var(--secondary-color);
-  height: 650px;
   grid-area: content;
+  padding: 3rem 1rem;
 }
 
 .movies {
   max-width: var(--max-width);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 2rem;
+}
+
+.movies > * {
+  grid-column: col-start / span 12; /*100% Width*/
+}
+
+/*Card Styling*/
+
+.card {
+  background-color: #dd58d6;
+  color: var(--text-color);
+  padding: 2rem 1.5rem;
+  /* width: 25%; */
+  border-radius: 0 0 1rem 1rem;
+}
+
+.card img {
+  margin-bottom: 2rem;
+}
+
+.card h4 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.card p {
+  margin: 0.5rem 0;
 }
 
 /*Footer Styling*/
 
 footer {
   background-color: #dd58d6;
-
   color: var(--text-color);
   padding: 2rem 0;
   grid-area: footer;
+}
+
+/*Media Quieries*/
+
+@media (min-width: 600px) {
+  .movies > * {
+    grid-column: span 6; /*50% Width*/
+  }
+}
+
+@media (min-width: 800px) {
+  .movies > * {
+    grid-column: span 4; /*33% Width*/
+  }
+}
+
+@media (min-width: 1180px) {
+  .movies > * {
+    grid-column: span 3; /*25% Width*/
+  }
 }
