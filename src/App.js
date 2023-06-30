@@ -1,6 +1,8 @@
 import "./assets/styles.css";
+import Home from "./pages/Home";
+
 function App() {
-  return <h1>hey</h1>;
+  return <Home></Home>;
 }
 
 export default App;
