@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import Data from "../data/Data";
 
 const Content = () => {
   return (
