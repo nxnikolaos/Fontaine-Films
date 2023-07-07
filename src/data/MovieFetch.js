@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Data = () => {
+const MovieFetch = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -19,18 +19,7 @@ const Data = () => {
         console.error(error);
       });
   }, []);
-  return (
-    <section>
-      {movies.map((movie) => {
-        return (
-          <article key={movie.id}>
-            <h2>{movie.original_title}</h2>
-            <p>{movie.overview}</p>
-          </article>
-        );
-      })}
-    </section>
-  );
+  return movies;
 };
 
-export default Data;
+export default MovieFetch;
