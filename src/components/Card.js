@@ -1,13 +1,21 @@
-import image from "../assets/images/g6.png";
+import { useState } from "react";
 
-const Card = ({ props }) => {
-  let title = props.original_title;
-  let description = props.overview;
+const Card = ({ title, description, posterUrl }) => {
+  const [readMore, setReadMore] = useState(false);
+
   return (
     <article className="card flex flex-column align-center">
-      <img src={image} alt="movie"></img>
+      <img src={posterUrl} alt="movie"></img>
       <h4>{title}</h4>
-      <p>{description}</p>
+      <p>
+        {readMore ? description : `${description.substring(0, 200)}...`}
+        <button
+          className="readmore-button"
+          onClick={() => setReadMore(!readMore)}
+        >
+          {readMore ? "Show less" : "Read more"}
+        </button>
+      </p>
     </article>
   );
 };
