@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
   res.json("hi");
 });
 
+/**get image configuration parameters */
 app.get("/config", (req, res) => {
   const options = {
     method: "GET",

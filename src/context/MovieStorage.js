@@ -15,7 +15,7 @@ const MovieStorage = ({ children }) => {
     axios
       .request(options)
       .then(function (response) {
-        setMovies(response.data.results.slice(0, 8));
+        setMovies(response.data.results.slice(0, 9));
       })
       .catch(function (error) {
         console.error(error);

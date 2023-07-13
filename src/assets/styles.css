@@ -1,13 +1,13 @@
 html {
   box-sizing: border-box;
-  font-family: Garamond, serif;
+  font-family: "Verdana", sans-serif;
 }
 
 :root {
-  --main-color: #40128b;
-  --secondary-color: #9336b4;
-  --third-color: #dd58d6;
-  --text-color: #ffe79b;
+  --main-color: #66fcf1;
+  --secondary-color: #45a29e;
+  --third-color: #1f2833;
+  --text-color: #c5c6c7;
   --max-width: 1180px;
 }
 
@@ -93,7 +93,12 @@ a {
 /*Main Content Styling*/
 
 .content {
-  background-color: var(--secondary-color);
+  background: var(--secondary-color);
+  background: radial-gradient(
+    circle,
+    var(--secondary-color) 0%,
+    var(--third-color) 100%
+  );
   grid-area: content;
   padding: 3rem 1rem;
 }
@@ -113,11 +118,41 @@ a {
 /*Card Styling*/
 
 .card {
-  background-color: #dd58d6;
+  background: var(--third-color);
+  background-image: radial-gradient(
+    circle,
+    var(--third-color) 0%,
+    var(--secondary-color) 100%
+  );
   color: var(--text-color);
   padding: 2rem 1.5rem;
-  /* width: 25%; */
   border-radius: 0 0 1rem 1rem;
+  border: 2px solid var(--main-color);
+  position: relative; /*Setting up the pseudo-hover effect*/
+  z-index: 1;
+}
+
+/*Pseudo hover effect*/
+.card::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient(
+    circle,
+    var(--secondary-color) 0%,
+    var(--third-color) 100%
+  );
+  z-index: -1;
+  transition: opacity 0.3s linear;
+  opacity: 0;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card img {
@@ -171,6 +206,6 @@ footer {
 
 @media (min-width: 1180px) {
   .movies > * {
-    grid-column: span 3; /*25% Width*/
+    grid-column: span 4; /*25% Width*/
   }
 }
