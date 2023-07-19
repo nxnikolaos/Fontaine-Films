@@ -118,7 +118,7 @@ a {
   background-color: var(--text-color);
   border-radius: 5px;
   rotate: 0;
-  transition: all 0.2s linear;
+  transition: all 0.25s linear;
 }
 
 .hamburger-menu span:before,
@@ -141,11 +141,27 @@ a {
 
 .hamburger-menu.clicked span:before {
   bottom: 0;
-  rotate: -45deg;
+  rotate: -135deg;
 }
 .hamburger-menu.clicked span:after {
   top: 0;
-  rotate: 45deg;
+  rotate: 135deg;
+}
+
+/*menu and links*/
+.menu.active {
+  text-align: center;
+}
+
+.menu ul {
+  list-style: none;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.menu li a:hover {
+  color: var(--text-color);
 }
 
 /*Main Content Styling*/
