@@ -76,6 +76,7 @@ a {
 .nav-header nav {
   max-width: var(--max-width);
   margin: 0 auto;
+  justify-content: space-between;
 }
 
 .nav-header a {
@@ -95,6 +96,56 @@ a {
   width: 2.5rem;
   height: 2.5rem;
   margin-right: 0.25em;
+}
+
+/*hamburger*/
+
+.hamburger-menu {
+  cursor: pointer;
+}
+
+.hamburger-menu span {
+  position: relative;
+}
+
+.hamburger-menu span,
+.hamburger-menu span:before,
+.hamburger-menu span:after {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 5px;
+  background-color: var(--text-color);
+  border-radius: 5px;
+  rotate: 0;
+  transition: all 0.2s linear;
+}
+
+.hamburger-menu span:before,
+.hamburger-menu span:after {
+  position: absolute;
+}
+
+.hamburger-menu span:before {
+  bottom: 0.85rem;
+}
+
+.hamburger-menu span:after {
+  top: 0.85rem;
+}
+
+/*clicked hamburger menu*/
+.hamburger-menu.clicked span {
+  background: transparent;
+}
+
+.hamburger-menu.clicked span:before {
+  bottom: 0;
+  rotate: -45deg;
+}
+.hamburger-menu.clicked span:after {
+  top: 0;
+  rotate: 45deg;
 }
 
 /*Main Content Styling*/
@@ -142,7 +193,7 @@ a {
   z-index: 1;
 }
 
-/*Pseudo hover effect*/
+/*pseudo hover effect*/
 .card::before {
   position: absolute;
   content: "";
