@@ -3,16 +3,31 @@ import { MoviesApiContext } from "../context/MoviesApiContext";
 import { useContext, useEffect } from "react";
 
 const Content = () => {
-  const [movies, images] = useContext(MoviesApiContext);
+  const [movies, images, isLoading, isError, imgIsLoading, imgIsError] =
+    useContext(MoviesApiContext);
 
-  useEffect(() => {
-    console.log(movies);
-    console.log(images);
-  }, [movies, images]);
+  // useEffect(() => {
+  //   console.log(movies);
+  //   console.log(images);
+  // }, [movies, images]);
 
   const imgSize = "w342"; //config db img size
   const imgPath = images.secure_base_url + imgSize;
 
+  if (isLoading) {
+    return (
+      <div className="content" id="loading-content">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+  if (isError) {
+    return (
+      <div className="content" id="loading-content">
+        <h1>Error...</h1>
+      </div>
+    );
+  }
   return (
     <div className="content">
       <section className="movies">
@@ -23,6 +38,8 @@ const Content = () => {
               title={movie.original_title}
               description={movie.overview}
               posterUrl={imgPath + movie.poster_path}
+              imgLoading={imgIsLoading}
+              imgError={imgIsError}
             ></Card>
           );
         })}

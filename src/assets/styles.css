@@ -192,6 +192,12 @@ a {
   grid-column: col-start / span 12; /*100% Width*/
 }
 
+/*content loading*/
+#loading-content {
+  color: var(--text-color);
+  text-align: center;
+}
+
 /*Card Styling*/
 
 .card {
