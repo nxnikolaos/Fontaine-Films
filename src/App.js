@@ -1,5 +1,6 @@
 import "./assets/styles.css";
 import Footer from "./components/Footer";
+import MovieDetails from "./pages/MovieDetails";
 import Navbar from "./components/Navbar";
 import MovieStorage from "./context/MovieStorage";
 import About from "./pages/About";
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/about" element={<About />}></Route>
+            <Route path="/movies/:id" element={<MovieDetails />}></Route>
           </Routes>
         </div>
         <Footer />

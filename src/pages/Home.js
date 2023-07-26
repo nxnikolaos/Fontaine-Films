@@ -34,6 +34,7 @@ const Home = () => {
         return (
           <Card
             key={movie.id}
+            id={movie.id}
             title={movie.original_title}
             description={movie.overview}
             posterUrl={imgPath + movie.poster_path}
