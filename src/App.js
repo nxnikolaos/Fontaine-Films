@@ -1,13 +1,13 @@
 import "./assets/styles.css";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import MovieStorage from "./context/MovieStorage";
 import Home from "./pages/Home";
 
 function App() {
   return (
     <MovieStorage>
-      <Header />
+      <Navbar />
       <div className="content">
         <Home />
       </div>
