@@ -3,7 +3,7 @@ import Hamburger from "./Hamburger";
 import Menu from "./Menu";
 import { useState } from "react";
 
-const Header = () => {
+const Navbar = () => {
   const [clicked, setClicked] = useState(false);
 
   return (
@@ -24,4 +24,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
