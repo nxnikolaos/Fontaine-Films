@@ -189,7 +189,7 @@ a {
 }
 
 .movies > * {
-  grid-column: col-start / span 12; /*100% Width*/
+  grid-column: span 4;
 }
 
 /*content loading*/
@@ -316,20 +316,26 @@ footer p {
 
 /*Media Quieries*/
 
-@media (min-width: 600px) {
+@media (max-width: 1180px) {
   .movies > * {
-    grid-column: span 6; /*50% Width*/
+    grid-column: span 4;
   }
 }
 
-@media (min-width: 800px) {
+@media (max-width: 800px) {
   .movies > * {
-    grid-column: span 4; /*33% Width*/
+    grid-column: span 6;
+  }
+  .movie-details {
+    flex-direction: column;
+  }
+  .details-info {
+    max-width: 100%;
   }
 }
 
-@media (min-width: 1180px) {
+@media (max-width: 600px) {
   .movies > * {
-    grid-column: span 4; /*25% Width*/
+    grid-column: col-start / span 12;
   }
 }
