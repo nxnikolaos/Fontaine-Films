@@ -2,6 +2,7 @@ import logo from "../assets/images/g6.png";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -11,10 +12,10 @@ const Navbar = () => {
       <header className="nav-header">
         <nav className="flex align-center">
           <div className="nav-logo">
-            <a href="#">
+            <Link to={"/"}>
               <img src={logo} alt="Logo"></img>
               Fontaine Films
-            </a>
+            </Link>
           </div>
           <Hamburger clicked={clicked} setClicked={setClicked} />
         </nav>

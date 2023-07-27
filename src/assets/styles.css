@@ -264,6 +264,40 @@ a {
   color: var(--text-color);
 }
 
+/*movie details*/
+
+.movie-details {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background-color: var(--text-color);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.card.movie-details::before {
+  border-radius: 1rem;
+}
+
+.details-thumbnail img {
+  max-width: 350px;
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+.details-info {
+  max-width: 60%;
+  padding: 1rem;
+}
+
+.stats {
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.details-info-stat span {
+  font-weight: bold;
+}
+
 /*Footer Styling*/
 
 footer {
