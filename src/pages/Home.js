@@ -1,6 +1,6 @@
 import Card from "../components/Card";
 import { MoviesApiContext } from "../context/MoviesApiContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 const Home = () => {
   const [movies, images, isLoading, isError, imgIsLoading, imgIsError] =
