@@ -1,7 +1,7 @@
 import "./assets/styles.css";
 import Footer from "./components/Footer";
 import MovieDetails from "./pages/MovieDetails";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navigation/Navbar";
 import MovieStorage from "./context/MovieStorage";
 import About from "./pages/About";
 import Home from "./pages/Home";

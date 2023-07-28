@@ -1,4 +1,4 @@
-import logo from "../assets/images/g6.png";
+import logo from "../../assets/images/g6.png";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
 import { useState } from "react";
