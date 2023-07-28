@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { MoviesApiContext } from "../context/MoviesApiContext";
+import ErrorState from "./ErrorState";
+import LoadingState from "../components/handlers/LoadingState";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -11,18 +13,10 @@ const MovieDetails = () => {
   const imgPath = images.secure_base_url + imgSize;
 
   if (isLoading) {
-    return (
-      <div id="loading-content">
-        <h1>Loading...</h1>
-      </div>
-    );
+    return <LoadingState />;
   }
   if (isError) {
-    return (
-      <div id="loading-content">
-        <h1>Error...</h1>
-      </div>
-    );
+    return <ErrorState />;
   }
 
   return (

@@ -1,6 +1,8 @@
 import Card from "../components/Card";
 import { MoviesApiContext } from "../context/MoviesApiContext";
 import { useContext } from "react";
+import ErrorState from "./ErrorState";
+import LoadingState from "../components/handlers/LoadingState";
 
 const Home = () => {
   const [movies, images, isLoading, isError, imgIsLoading, imgIsError] =
@@ -15,19 +17,13 @@ const Home = () => {
   const imgPath = images.secure_base_url + imgSize;
 
   if (isLoading) {
-    return (
-      <div id="loading-content">
-        <h1>Loading...</h1>
-      </div>
-    );
+    return <LoadingState />;
   }
+
   if (isError) {
-    return (
-      <div id="loading-content">
-        <h1>Error...</h1>
-      </div>
-    );
+    return <ErrorState />;
   }
+
   return (
     <section className="movies">
       {movies.map((movie) => {
