@@ -12,13 +12,13 @@ function App() {
     <MovieStorage>
       <Router>
         <Navbar />
-        <div className="content">
+        <main className="content">
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/movies/:id" element={<MovieDetails />}></Route>
           </Routes>
-        </div>
+        </main>
         <Footer />
       </Router>
     </MovieStorage>

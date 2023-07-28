@@ -8,11 +8,6 @@ const Home = () => {
   const [movies, images, isLoading, isError, imgIsLoading, imgIsError] =
     useContext(MoviesApiContext);
 
-  // useEffect(() => {
-  //   console.log(movies);
-  //   console.log(images);
-  // }, [movies, images]);
-
   const imgSize = "w342"; //config db img size
   const imgPath = images.secure_base_url + imgSize;
 
