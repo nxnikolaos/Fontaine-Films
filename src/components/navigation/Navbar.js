@@ -3,6 +3,7 @@ import Hamburger from "./Hamburger";
 import Menu from "./Menu";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -17,6 +18,7 @@ const Navbar = () => {
               Fontaine Films
             </Link>
           </div>
+          <Searchbar />
           <Hamburger clicked={clicked} setClicked={setClicked} />
         </nav>
         {clicked ? <Menu /> : null}

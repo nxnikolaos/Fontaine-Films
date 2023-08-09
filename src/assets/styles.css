@@ -99,6 +99,24 @@ a {
   margin-right: 0.25em;
 }
 
+/*searchbar*/
+
+.searchbar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 2rem;
+}
+
+.searchbar input {
+  padding: 0.6em 1em;
+  border-radius: 20px;
+  border: 0;
+  width: 100%;
+  /* width: 300px; */
+  box-shadow: var(--text-color) 0px 0px 8px 1px inset;
+  font-size: 1rem;
+}
+
 /*hamburger*/
 
 .hamburger-menu {
@@ -336,6 +354,13 @@ footer p {
 }
 
 @media (max-width: 600px) {
+  .nav-header nav {
+    flex-wrap: wrap;
+  }
+  .searchbar {
+    order: 3;
+    margin: 0.6rem 0;
+  }
   .movies > * {
     grid-column: col-start / span 12;
   }
