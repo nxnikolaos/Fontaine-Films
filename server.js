@@ -35,6 +35,7 @@ app.get("/config", (req, res) => {
     });
 });
 
+/*get recent movies */
 app.get("/movies", (req, res) => {
   const options = {
     method: "GET",

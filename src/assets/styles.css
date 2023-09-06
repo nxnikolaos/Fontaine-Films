@@ -338,6 +338,10 @@ footer p {
   letter-spacing: 1pt;
 }
 
+footer .footer-logo {
+  width: 80px;
+}
+
 /*Media Quieries*/
 
 @media (max-width: 1180px) {
