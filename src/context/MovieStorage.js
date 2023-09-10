@@ -13,7 +13,9 @@ const MovieStorage = ({ children }) => {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "http://localhost:8000/movies",
+      // url: "http://localhost:8000/movies",
+       url: "https://nxnikolaos.github.io:8000/movies",
+
     };
 
     axios
@@ -30,7 +32,7 @@ const MovieStorage = ({ children }) => {
 
     const lala = {
       method: "GET",
-      url: "http://localhost:8000/config",
+      url: "https://nxnikolaos.github.io:8000/config",
     };
     axios
       .request(lala)
