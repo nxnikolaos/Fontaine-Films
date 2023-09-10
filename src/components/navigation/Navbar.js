@@ -15,7 +15,7 @@ const Navbar = () => {
           <div className="nav-logo">
             <Link to={"/"}>
               <img src={logo} alt="Logo"></img>
-              Fontaine Films
+              Fontaine Filmsr
             </Link>
           </div>
           <Searchbar />
