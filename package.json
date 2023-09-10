@@ -2,6 +2,7 @@
   "name": "fontaine-films",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://{nxnikolaos}.github.io/{Fontaine-Films}",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -21,6 +22,8 @@
     "start:backend": "nodemon server.js",
     "start:frontend": "react-scripts start",
     "start": "concurrently --names \"FRONTEND,BACKEND\" -c \"bgMagenta.bold,bgGreen.bold\" \"npm run start:frontend\" \"npm run start:backend\"",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "gh-pages": "^6.0.0"
   }
 }
