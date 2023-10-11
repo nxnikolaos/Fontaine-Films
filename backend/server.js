@@ -1,4 +1,4 @@
-const PORT = 8000;
+const PORT = 8080;
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
@@ -10,13 +10,10 @@ app.use(cors());
 const movieUrl = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
 const imgConfigUrl = "https://api.themoviedb.org/3/configuration";
 
-/*test if backend is up* */
-app.get("/", (req, res) => {
-  res.json("hi");
-});
+app.use(express.static("build"));
 
 /**get image configuration parameters */
-app.get("/config", (req, res) => {
+app.get("/api/config", (req, res) => {
   const options = {
     method: "GET",
     url: imgConfigUrl,
@@ -36,7 +33,7 @@ app.get("/config", (req, res) => {
 });
 
 /*get recent movies */
-app.get("/movies", (req, res) => {
+app.get("/api/movies", (req, res) => {
   const options = {
     method: "GET",
     url: movieUrl,
