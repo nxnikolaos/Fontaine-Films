@@ -13,8 +13,8 @@ const MovieStorage = ({ children }) => {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "/api/movies",
-      //  url: "https://nxnikolaos.github.io:8000/movies",
+      // url: "/api/movies",
+      url: "https://fontaine-films.onrender.com/api/movies",
     };
 
     axios
@@ -31,8 +31,8 @@ const MovieStorage = ({ children }) => {
 
     const lala = {
       method: "GET",
-      // url: "https://nxnikolaos.github.io:8000/config",
-      url: "/api/config",
+      url: "https://fontaine-films.onrender.com/api/config",
+      // url: "/api/config",
     };
     axios
       .request(lala)
