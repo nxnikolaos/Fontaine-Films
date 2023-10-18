@@ -1,4 +1,5 @@
-const PORT = 8080;
+// const PORT = 8080;
+const PORT = process.env.PORT || 3030;
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
