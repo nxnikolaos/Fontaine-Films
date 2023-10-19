@@ -105,9 +105,11 @@ a {
   width: 100%;
   max-width: 600px;
   margin: 0 2rem;
+  position: relative;
 }
 
 .searchbar input {
+  position: relative;
   padding: 0.6em 1em;
   border-radius: 20px;
   border: 0;
@@ -120,6 +122,35 @@ a {
 .searchbar input:focus {
   outline: none;
   box-shadow: var(--text-color) 0px 0px 8px 1px;
+}
+
+/*search results*/
+.search-results-container {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.6em 1em;
+  border-radius: 20px;
+  z-index: 2;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.search-list {
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.search-list li {
+  padding: 0.4em 0;
+  list-style: none;
+}
+
+.search-list li:hover {
+  background-color: #efefef;
+  cursor: pointer;
 }
 
 /*hamburger*/
@@ -236,7 +267,7 @@ a {
   border-radius: 0 0 1rem 1rem;
   border: 2px solid var(--main-color);
   position: relative; /*Setting up the pseudo-hover effect*/
-  z-index: 1;
+  /* z-index: 1; disable the hover effect, messes with search results */
 }
 
 /*pseudo hover effect*/
