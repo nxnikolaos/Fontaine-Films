@@ -11,7 +11,8 @@ app.use(cors());
 const baseUrl = `https://api.themoviedb.org/3/`;
 const movieUrl = `${baseUrl}discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
 const imgConfigUrl = `${baseUrl}configuration`;
-const queryUrl = `https://api.themoviedb.org/3/search/movie?query=${lord}&include_adult=false&language=en-US&page=1`;
+// let queryUrl = `${baseUrl}search/movie?query=${lord}&include_adult=false&language=en-US&page=1`;
+let queryUrl = `${baseUrl}search/movie?query=lord&include_adult=false&language=en-US&page=1`;
 
 app.use(express.static("build"));
 
