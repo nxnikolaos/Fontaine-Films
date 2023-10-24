@@ -8,6 +8,15 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 
+// const axiosClient = axios.create({
+//   baseUrl: `http://api.themoviedb.org/3/`,
+//   timeout: 2000,
+//   headers: {
+//     accept: "application/json",
+//     Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
+//   },
+// });
+
 const baseUrl = `https://api.themoviedb.org/3/`;
 const movieUrl = `${baseUrl}discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
 const imgConfigUrl = `${baseUrl}configuration`;
@@ -37,6 +46,21 @@ app.get("/api/config", (req, res) => {
 });
 
 /*get recent movies */
+
+// app.get("/api/movies", (req, res) => {
+//   const response = axiosClient
+//     .get(
+//       "discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
+//     )
+//     .then(function (response) {
+//       res.json(response.data);
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+//   return response.data;
+// });
+
 app.get("/api/movies", (req, res) => {
   const options = {
     method: "GET",
@@ -59,24 +83,24 @@ app.get("/api/movies", (req, res) => {
 
 /*search query request */
 
-app.get("/api/movies/search", (req, res) => {
-  const options = {
-    method: "GET",
-    url: queryUrl,
-    headers: {
-      accept: "application/json",
-      Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
-    },
-  };
+// app.get(`/api/movies/search`, (req, res) => {
+//   const options = {
+//     method: "GET",
+//     url: `${baseUrl}search/movie?query=&include_adult=false&language=en-US&page=1`,
+//     headers: {
+//       accept: "application/json",
+//       Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
+//     },
+//   };
 
-  axios
-    .request(options)
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-});
+//   axios
+//     .request(options)
+//     .then(function (response) {
+//       console.log(response.data);
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+// });
 
 app.listen(PORT, () => console.log(`Backend is running on ${PORT}`));
