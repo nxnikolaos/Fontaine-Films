@@ -6,23 +6,6 @@ const Searchbar = () => {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
 
-  // const fetchData = (value) => {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       const results = json.filter((user) => {
-  //         return (
-  //           value &&
-  //           user &&
-  //           user.name &&
-  //           user.name.toLowerCase().includes(value)
-  //         );
-  //       });
-  //       console.log(results);
-  //       setResults(results);
-  //     });
-  // };
-
   const fetchData = (value) => {
     const queryParams = {
       param1: value,
