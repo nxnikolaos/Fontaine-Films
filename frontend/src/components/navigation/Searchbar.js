@@ -1,24 +1,47 @@
 import SearchResults from "./SearchResults";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Searchbar = () => {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
 
+  // const fetchData = (value) => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       const results = json.filter((user) => {
+  //         return (
+  //           value &&
+  //           user &&
+  //           user.name &&
+  //           user.name.toLowerCase().includes(value)
+  //         );
+  //       });
+  //       console.log(results);
+  //       setResults(results);
+  //     });
+  // };
+
   const fetchData = (value) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((json) => {
-        const results = json.filter((user) => {
+    axios({
+      method: "get",
+      url: "/api/movies/search",
+    })
+      .then(function (response) {
+        const results = response.data.results.filter((movie) => {
           return (
             value &&
-            user &&
-            user.name &&
-            user.name.toLowerCase().includes(value)
+            movie &&
+            movie.title &&
+            movie.title.toLowerCase().includes(value)
           );
         });
-        console.log(results);
-        setResults(results);
+        // console.log(results);
+        setResults(results.slice(0, 8));
+      })
+      .catch(function (error) {
+        console.error(error);
       });
   };
 

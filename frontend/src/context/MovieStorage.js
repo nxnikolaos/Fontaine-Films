@@ -11,14 +11,11 @@ const MovieStorage = ({ children }) => {
   const [imgIsError, setImgIsError] = useState(false);
 
   useEffect(() => {
-    const options = {
-      method: "GET",
+    axios({
+      method: "get",
       url: "/api/movies",
       // url: "https://fontaine-films.onrender.com/api/movies",
-    };
-
-    axios
-      .request(options)
+    })
       .then(function (response) {
         setMovies(response.data.results.slice(0, 9));
         setIsLoading(false);
@@ -29,13 +26,11 @@ const MovieStorage = ({ children }) => {
         console.error(error);
       });
 
-    const lala = {
-      method: "GET",
-      // url: "https://fontaine-films.onrender.com/api/config",
+    axios({
+      method: "get",
       url: "/api/config",
-    };
-    axios
-      .request(lala)
+      // url: "https://fontaine-films.onrender.com/api/config",
+    })
       .then(function (response) {
         setImages(response.data.images);
         setImageIsLoading(false);
