@@ -8,35 +8,27 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 
-// const axiosClient = axios.create({
-//   baseUrl: `http://api.themoviedb.org/3/`,
-//   timeout: 2000,
-//   headers: {
-//     accept: "application/json",
-//     Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
-//   },
-// });
+/*axios default configuration */
+axios.defaults.baseURL = `https://api.themoviedb.org/3`;
+axios.defaults.headers.common[
+  "Authorization"
+] = `Bearer ${process.env.REACT_APP_API_KEY}`;
+axios.defaults.headers.common["Content-Type"] = `application/json`;
 
-const baseUrl = `https://api.themoviedb.org/3/`;
-const movieUrl = `${baseUrl}discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
-const imgConfigUrl = `${baseUrl}configuration`;
+const movieUrl = `/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
+const imgConfigUrl = `/configuration`;
 // let queryUrl = `${baseUrl}search/movie?query=${lord}&include_adult=false&language=en-US&page=1`;
-let queryUrl = `${baseUrl}search/movie?query=lord&include_adult=false&language=en-US&page=1`;
+// let queryUrl = `/search/movie?query=lord&include_adult=false&language=en-US&page=1`;
 
 app.use(express.static("build"));
 
 /**get image configuration parameters */
+
 app.get("/api/config", (req, res) => {
-  const options = {
-    method: "GET",
+  axios({
+    method: "get",
     url: imgConfigUrl,
-    headers: {
-      accept: "application/json",
-      Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
-    },
-  };
-  axios
-    .request(options)
+  })
     .then(function (response) {
       res.json(response.data);
     })
@@ -47,32 +39,11 @@ app.get("/api/config", (req, res) => {
 
 /*get recent movies */
 
-// app.get("/api/movies", (req, res) => {
-//   const response = axiosClient
-//     .get(
-//       "discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
-//     )
-//     .then(function (response) {
-//       res.json(response.data);
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//     });
-//   return response.data;
-// });
-
 app.get("/api/movies", (req, res) => {
-  const options = {
-    method: "GET",
+  axios({
+    method: "get",
     url: movieUrl,
-    headers: {
-      accept: "application/json",
-      Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
-    },
-  };
-
-  axios
-    .request(options)
+  })
     .then(function (response) {
       res.json(response.data);
     })
@@ -83,24 +54,17 @@ app.get("/api/movies", (req, res) => {
 
 /*search query request */
 
-// app.get(`/api/movies/search`, (req, res) => {
-//   const options = {
-//     method: "GET",
-//     url: `${baseUrl}search/movie?query=&include_adult=false&language=en-US&page=1`,
-//     headers: {
-//       accept: "application/json",
-//       Authorization: "Bearer " + process.env.REACT_APP_API_KEY,
-//     },
-//   };
-
-//   axios
-//     .request(options)
-//     .then(function (response) {
-//       console.log(response.data);
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//     });
-// });
+app.get(`/api/movies/search`, (req, res) => {
+  axios({
+    method: "get",
+    url: `search/movie?query=&include_adult=false&language=en-US&page=1`,
+  })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
 
 app.listen(PORT, () => console.log(`Backend is running on ${PORT}`));
