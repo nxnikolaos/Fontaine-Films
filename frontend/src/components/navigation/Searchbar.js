@@ -24,9 +24,14 @@ const Searchbar = () => {
   // };
 
   const fetchData = (value) => {
+    const queryParams = {
+      param1: value,
+    };
+
     axios({
       method: "get",
-      url: "/api/movies/search",
+      url: `/api/movies/search`,
+      params: queryParams,
     })
       .then(function (response) {
         const results = response.data.results.filter((movie) => {

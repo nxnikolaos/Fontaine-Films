@@ -52,9 +52,10 @@ app.get("/api/movies", (req, res) => {
 /*search query request */
 
 app.get(`/api/movies/search`, (req, res) => {
+  const param1 = req.query.param1;
   axios({
     method: "get",
-    url: `/search/movie?query=lord&include_adult=false&language=en-US&page=1`,
+    url: `/search/movie?query=${param1}&include_adult=false&language=en-US&page=1`,
   })
     .then(function (response) {
       res.json(response.data);
