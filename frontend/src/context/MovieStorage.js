@@ -13,8 +13,8 @@ const MovieStorage = ({ children }) => {
   useEffect(() => {
     axios({
       method: "get",
-      // url: "/api/movies",
-      url: "https://fontaine-films.onrender.com/api/movies",
+      url: "/api/movies",
+      // url: "https://fontaine-films.onrender.com/api/movies",
     })
       .then(function (response) {
         setMovies(response.data.results.slice(0, 9));
@@ -28,11 +28,12 @@ const MovieStorage = ({ children }) => {
 
     axios({
       method: "get",
-      // url: "/api/config",
-      url: "https://fontaine-films.onrender.com/api/config",
+      url: "/api/config",
+      // url: "https://fontaine-films.onrender.com/api/config",
     })
       .then(function (response) {
         setImages(response.data.images);
+        console.log(response.data.images);
         setImageIsLoading(false);
       })
       .catch(function (error) {

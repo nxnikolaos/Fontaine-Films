@@ -65,4 +65,18 @@ app.get(`/api/movies/search`, (req, res) => {
     });
 });
 
+app.get(`/api/movie/id`, (req, res) => {
+  const queryID = req.query.paramId;
+  axios({
+    method: `get`,
+    url: `/movie/${queryID}?language=en-US`,
+  })
+    .then(function (response) {
+      res.json(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
+
 app.listen(PORT, () => console.log(`Backend is running on ${PORT}`));
