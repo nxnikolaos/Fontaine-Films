@@ -1,5 +1,6 @@
 import Card from "../components/Card";
 import { ImgConfigContext } from "../context/ImgConfigContext";
+import { StateContext } from "../context/StateContext";
 import { useContext, useEffect, useState } from "react";
 import ErrorState from "./ErrorState";
 import LoadingState from "../components/handlers/LoadingState";
@@ -7,12 +8,12 @@ import axios from "axios";
 
 const Home = () => {
   const [images, imgIsLoading, imgIsError] = useContext(ImgConfigContext);
+  const { isLoading, isError, setIsLoading, setIsError } =
+    useContext(StateContext);
   const imgSize = "w342"; //config db img size
   const imgPath = images.secure_base_url + imgSize;
 
   const [inTheatres, setInTheatres] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     axios({
@@ -29,7 +30,7 @@ const Home = () => {
         setIsError(true);
         console.error(error);
       });
-  }, []);
+  }, [setIsLoading, setIsError]);
 
   if (isLoading) {
     return <LoadingState />;

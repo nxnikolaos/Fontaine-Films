@@ -1,11 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ImgConfigContext } from "../context/ImgConfigContext";
+import { StateContext } from "../context/StateContext";
+import LoadingState from "../components/handlers/LoadingState";
+import ErrorState from "./ErrorState";
 import axios from "axios";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [images] = useContext(ImgConfigContext);
+  const { isLoading, isError, setIsLoading, setIsError } =
+    useContext(StateContext);
   const [movie, setMovie] = useState([]);
 
   const imgSize = "w500"; //config db img size
@@ -24,11 +29,22 @@ const MovieDetails = () => {
       .then(function (response) {
         const results = response.data;
         setMovie(results);
+        setIsLoading(false);
       })
       .catch(function (error) {
+        setIsLoading(false);
+        setIsError(true);
         console.error(error);
       });
-  }, [id]);
+  }, [id, setIsLoading, setIsError]);
+
+  if (isLoading) {
+    return <LoadingState />;
+  }
+
+  if (isError) {
+    return <ErrorState />;
+  }
 
   return (
     <div className="card movie-details flex align-center">
