@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ImgConfigContext } from "./ImgConfigContext";
 import axios from "axios";
 
-const MovieStorage = ({ children }) => {
+const ImageConfig = ({ children }) => {
   const [images, setImages] = useState([]);
   const [imgIsLoading, setImageIsLoading] = useState(true);
   const [imgIsError, setImgIsError] = useState(false);
@@ -39,4 +39,4 @@ const MovieStorage = ({ children }) => {
   );
 };
 
-export default MovieStorage;
+export default ImageConfig;
