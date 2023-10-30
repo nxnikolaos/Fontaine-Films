@@ -16,15 +16,12 @@ axios.defaults.headers.common[
 ] = `Bearer ${process.env.REACT_APP_API_KEY}`;
 axios.defaults.headers.common["Content-Type"] = `application/json`;
 
-const movieUrl = `/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
-const imgConfigUrl = `/configuration`;
-
-/**get image configuration parameters */
+/*get image configuration parameters */
 
 app.get("/api/config", (req, res) => {
   axios({
     method: "get",
-    url: imgConfigUrl,
+    url: `/configuration`,
   })
     .then(function (response) {
       res.json(response.data);
@@ -34,22 +31,7 @@ app.get("/api/config", (req, res) => {
     });
 });
 
-/*get recent movies */
-
-app.get("/api/movies", (req, res) => {
-  axios({
-    method: "get",
-    url: movieUrl,
-  })
-    .then(function (response) {
-      res.json(response.data);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-});
-
-/*search query request */
+/*get movies searched by title */
 
 app.get(`/api/movies/search`, (req, res) => {
   const param1 = req.query.param1;
@@ -65,11 +47,28 @@ app.get(`/api/movies/search`, (req, res) => {
     });
 });
 
-app.get(`/api/movie/id`, (req, res) => {
+/*get movies based on ID*/
+
+app.get(`/api/movies/id`, (req, res) => {
   const queryID = req.query.paramId;
   axios({
     method: `get`,
     url: `/movie/${queryID}?language=en-US`,
+  })
+    .then(function (response) {
+      res.json(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
+
+/*get movies now playing in theaters */
+
+app.get("/api/movies/theatres", (req, res) => {
+  axios({
+    method: "get",
+    url: `/movie/now_playing?language=en-US&page=1`,
   })
     .then(function (response) {
       res.json(response.data);

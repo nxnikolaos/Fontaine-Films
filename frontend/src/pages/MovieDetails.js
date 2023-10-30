@@ -1,14 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MoviesApiContext } from "../context/MoviesApiContext";
+import { ImgConfigContext } from "../context/ImgConfigContext";
 import axios from "axios";
 
 const MovieDetails = () => {
   const { id } = useParams();
-  const [images] = useContext(MoviesApiContext);
+  const [images] = useContext(ImgConfigContext);
   const [movie, setMovie] = useState([]);
 
-  // const post = movies.find((movie) => movie.id === Number(id));
   const imgSize = "w500"; //config db img size
   const imgPath = images.secure_base_url + imgSize;
 
@@ -18,7 +17,7 @@ const MovieDetails = () => {
     };
     axios({
       method: "get",
-      url: `/api/movie/id`,
+      url: `/api/movies/id`,
       // url: `https://fontaine-films.onrender.com/api/movie/id`,
       params: queryParams,
     })
