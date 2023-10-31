@@ -344,12 +344,20 @@ a {
   padding: 1rem;
 }
 
+.comma-after span::after {
+  content: ", ";
+}
+.comma-after span:last-child:after {
+  content: "";
+}
+
 .stats {
   margin-top: 1rem;
   justify-content: space-between;
 }
 
-.details-info-stat span {
+.details-info-stat span,
+.comma-after span {
   font-weight: bold;
 }
 

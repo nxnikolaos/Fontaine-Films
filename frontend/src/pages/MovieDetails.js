@@ -56,14 +56,28 @@ const MovieDetails = () => {
       </section>
       <section className="details-info">
         <h2>{movie.original_title}</h2>
-        <span>Release Date : {movie.release_date}</span>
+        <p className="details-info-stat">
+          Release Date : <span>{movie.release_date}</span>
+        </p>
+
+        {movie.genres /*Conditionally render the genres if defined */ && (
+          <p className="comma-after">
+            Genres :{" "}
+            {movie.genres.map((genre) => {
+              return <span key={genre.id}>{genre.name}</span>;
+            })}
+          </p>
+        )}
         <p>{movie.overview}</p>
+        <p className="details-info-stat">
+          Runtime : <span>{movie.runtime} minutes.</span>
+        </p>
         <div className="stats flex align-center">
           <div className="details-info-stat">
             Popularity : <span>{movie.popularity}</span>
           </div>
           <div className="details-info-stat">
-            Vote Average : <span>{movie.vote_average}</span>
+            Rating : <span>{movie.vote_average}</span>
           </div>
           <div className="details-info-stat">
             Vote Count : <span>{movie.vote_count}</span>
