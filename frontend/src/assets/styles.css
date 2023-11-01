@@ -360,6 +360,27 @@ a {
 .comma-after span {
   font-weight: bold;
 }
+.cast {
+  padding: 1rem;
+}
+
+.cast-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.cast-row article {
+  padding: 1rem;
+}
+
+.cast-row article p {
+  margin: 0.1rem 0;
+}
+
+img.actor-profile-pic {
+  height: 200px;
+  width: auto;
+}
 
 /*Footer Styling*/
 

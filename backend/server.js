@@ -53,8 +53,10 @@ app.get(`/api/movies/id`, (req, res) => {
   const queryID = req.query.paramId;
   const boolActors = req.query.actors;
   let curl = `/movie/${queryID}?language=en-US`;
+
   boolActors &&
     (curl = `/movie/${queryID}?append_to_response=credits&language=en-US`);
+
   axios({
     method: `get`,
     url: curl,

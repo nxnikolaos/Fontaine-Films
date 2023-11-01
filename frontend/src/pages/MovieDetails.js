@@ -30,6 +30,7 @@ const MovieDetails = () => {
       .then(function (response) {
         const results = response.data;
         setMovie(results);
+        console.log(results);
         setIsLoading(false);
       })
       .catch(function (error) {
@@ -48,42 +49,63 @@ const MovieDetails = () => {
   }
 
   return (
-    <div className="card movie-details flex align-center">
-      <section className="details-thumbnail">
-        <img
-          src={imgPath + movie.poster_path}
-          alt={"Poster for " + movie.title}
-        ></img>
-      </section>
-      <section className="details-info">
-        <h2>{movie.original_title}</h2>
-        <p className="details-info-stat">
-          Release Date : <span>{movie.release_date}</span>
-        </p>
-
-        {movie.genres /*Conditionally render the genres if defined */ && (
-          <p className="comma-after">
-            Genres :{" "}
-            {movie.genres.map((genre) => {
-              return <span key={genre.id}>{genre.name}</span>;
-            })}
+    <div className="card movie-details">
+      <section className="flex align-center">
+        <section className="details-thumbnail">
+          <img
+            src={imgPath + movie.poster_path}
+            alt={"Poster for " + movie.title}
+          ></img>
+        </section>
+        <section className="details-info">
+          <h2>{movie.original_title}</h2>
+          <p className="details-info-stat">
+            Release Date : <span>{movie.release_date}</span>
           </p>
-        )}
-        <p>{movie.overview}</p>
-        <p className="details-info-stat">
-          Runtime : <span>{movie.runtime} minutes.</span>
-        </p>
-        <div className="stats flex align-center">
-          <div className="details-info-stat">
-            Popularity : <span>{movie.popularity}</span>
+
+          {movie.genres /*Conditionally render the genres if defined */ && (
+            <p className="comma-after">
+              Genres :{" "}
+              {movie.genres.map((genre) => {
+                return <span key={genre.id}>{genre.name}</span>;
+              })}
+            </p>
+          )}
+          <p>{movie.overview}</p>
+          <p className="details-info-stat">
+            Runtime : <span>{movie.runtime} minutes.</span>
+          </p>
+          <div className="stats flex align-center">
+            <p className="details-info-stat">
+              Popularity : <span>{movie.popularity}</span>
+            </p>
+            <p className="details-info-stat">
+              Rating : <span>{movie.vote_average}</span>
+            </p>
+            <p className="details-info-stat">
+              Vote Count : <span>{movie.vote_count}</span>
+            </p>
           </div>
-          <div className="details-info-stat">
-            Rating : <span>{movie.vote_average}</span>
-          </div>
-          <div className="details-info-stat">
-            Vote Count : <span>{movie.vote_count}</span>
-          </div>
-        </div>
+        </section>
+      </section>
+      <section className="cast">
+        <h3>Cast : </h3>
+        <section className="cast-row">
+          {movie.credits.cast.slice(0, 10).map((actor) => {
+            return (
+              <article className="text-center" key={actor.id}>
+                <img
+                  className="actor-profile-pic"
+                  src={imgPath + actor.profile_path}
+                  alt={"Thumbnail of " + actor.original_name}
+                ></img>
+                <p> {actor.original_name}</p>
+                <p>as</p>
+                <p>{actor.character}</p>
+              </article>
+            );
+          })}
+        </section>
       </section>
     </div>
   );
