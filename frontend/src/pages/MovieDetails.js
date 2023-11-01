@@ -19,6 +19,7 @@ const MovieDetails = () => {
   useEffect(() => {
     const queryParams = {
       paramId: Number(id),
+      actors: true,
     };
     axios({
       method: "get",
