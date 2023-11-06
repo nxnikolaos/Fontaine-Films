@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ImgConfigContext } from "../context/ImgConfigContext";
 import { StateContext } from "../context/StateContext";
+import { MovieOverview } from "../components/MovieOverview";
+import { MovieCast } from "../components/MovieCast";
 import LoadingState from "../components/handlers/LoadingState";
 import ErrorState from "./ErrorState";
 import axios from "axios";
@@ -49,64 +51,9 @@ const MovieDetails = () => {
   }
 
   return (
-    <div className="card movie-details">
-      <section className="flex align-center">
-        <section className="details-thumbnail">
-          <img
-            src={imgPath + movie.poster_path}
-            alt={"Poster for " + movie.title}
-          ></img>
-        </section>
-        <section className="details-info">
-          <h2>{movie.original_title}</h2>
-          <p className="details-info-stat">
-            Release Date : <span>{movie.release_date}</span>
-          </p>
-
-          {movie.genres /*Conditionally render the genres if defined */ && (
-            <p className="comma-after">
-              Genres :{" "}
-              {movie.genres.map((genre) => {
-                return <span key={genre.id}>{genre.name}</span>;
-              })}
-            </p>
-          )}
-          <p>{movie.overview}</p>
-          <p className="details-info-stat">
-            Runtime : <span>{movie.runtime} minutes.</span>
-          </p>
-          <div className="stats flex align-center">
-            <p className="details-info-stat">
-              Popularity : <span>{movie.popularity}</span>
-            </p>
-            <p className="details-info-stat">
-              Rating : <span>{movie.vote_average}</span>
-            </p>
-            <p className="details-info-stat">
-              Vote Count : <span>{movie.vote_count}</span>
-            </p>
-          </div>
-        </section>
-      </section>
-      <section className="cast">
-        <h3>Cast : </h3>
-        <section className="cast-row">
-          {movie.credits.cast.slice(0, 10).map((actor) => {
-            return (
-              <article className="text-center" key={actor.id}>
-                <img
-                  className="actor-profile-pic"
-                  src={imgPath + actor.profile_path}
-                  alt={"Thumbnail of " + actor.original_name}
-                ></img>
-                <p> {actor.original_name}</p>
-                <p>as</p>
-                <p>{actor.character}</p>
-              </article>
-            );
-          })}
-        </section>
-      </section>
+    <div key={movie.id} className="card movie-details">
+      <MovieOverview movie={movie} imgPath={imgPath}></MovieOverview>
+      <MovieCast movie={movie} imgPath={imgPath}></MovieCast>
     </div>
   );
 };
