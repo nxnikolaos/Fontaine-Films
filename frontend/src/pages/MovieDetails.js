@@ -32,7 +32,6 @@ const MovieDetails = () => {
       .then(function (response) {
         const results = response.data;
         setMovie(results);
-        console.log(results);
         setIsLoading(false);
       })
       .catch(function (error) {
