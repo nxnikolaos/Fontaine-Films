@@ -10,8 +10,8 @@ const ImageConfig = ({ children }) => {
   useEffect(() => {
     axios({
       method: "get",
-      // url: "/api/config",
-      url: "https://fontaine-films.onrender.com/api/config",
+      url: "/api/config",
+      // url: "https://fontaine-films.onrender.com/api/config",
     })
       .then(function (response) {
         setImages(response.data.images);
