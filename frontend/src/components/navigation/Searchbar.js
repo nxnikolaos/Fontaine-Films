@@ -13,8 +13,8 @@ const Searchbar = () => {
 
     axios({
       method: "get",
-      url: `/api/movies/search`,
-      // url: `https://fontaine-films.onrender.com/api/movies/search`,
+      // url: `/api/movies/search`,
+      url: `https://fontaine-films.onrender.com/api/movies/search`,
       params: queryParams,
     })
       .then(function (response) {
