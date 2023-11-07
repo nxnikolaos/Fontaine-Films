@@ -15,8 +15,7 @@ const MovieDetails = () => {
     useContext(StateContext);
   const [movie, setMovie] = useState([]);
 
-  const imgSize = "w500"; //config db img size
-  const imgPath = images.secure_base_url + imgSize;
+  const imgPath = images.secure_base_url;
 
   useEffect(() => {
     const queryParams = {
@@ -33,6 +32,7 @@ const MovieDetails = () => {
         const results = response.data;
         setMovie(results);
         setIsLoading(false);
+        setIsError(false);
       })
       .catch(function (error) {
         setIsLoading(false);
@@ -51,8 +51,8 @@ const MovieDetails = () => {
 
   return (
     <div key={movie.id} className="card movie-details">
-      <MovieOverview movie={movie} imgPath={imgPath}></MovieOverview>
-      <MovieCast movie={movie} imgPath={imgPath}></MovieCast>
+      <MovieOverview movie={movie} imgPath={imgPath + "w342"}></MovieOverview>
+      <MovieCast movie={movie} imgPath={imgPath + "w185"}></MovieCast>
     </div>
   );
 };

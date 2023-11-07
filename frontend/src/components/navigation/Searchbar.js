@@ -26,7 +26,6 @@ const Searchbar = () => {
             movie.title.toLowerCase().includes(value)
           );
         });
-        // console.log(results);
         setResults(results.slice(0, 8));
       })
       .catch(function (error) {
