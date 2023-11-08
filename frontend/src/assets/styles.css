@@ -380,6 +380,7 @@ a {
 
 img.actor-profile-pic {
   height: 200px;
+  max-width: 133px;
   width: auto;
 }
 
