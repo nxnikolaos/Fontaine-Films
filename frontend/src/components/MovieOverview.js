@@ -1,13 +1,14 @@
 import React from "react";
 
 export const MovieOverview = ({ movie, imgPath }) => {
+  let imgSource = movie.poster_path ? imgPath + movie.poster_path : null;
+
   return (
     <section className="flex align-center">
       <section className="details-thumbnail">
-        <img
-          src={imgPath + movie.poster_path}
-          alt={"Poster for " + movie.title}
-        ></img>
+        {imgSource && (
+          <img src={imgSource} alt={"Poster for " + movie.title}></img>
+        )}
       </section>
       <section className="details-info">
         <h2>{movie.original_title}</h2>
