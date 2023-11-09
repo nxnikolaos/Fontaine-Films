@@ -5,6 +5,7 @@ import axios from "axios";
 const Searchbar = () => {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const fetchData = (value) => {
     const queryParams = {
@@ -37,23 +38,37 @@ const Searchbar = () => {
     const timeoutId = setTimeout(() => {
       fetchData(input);
     }, 500);
+
+    results.length > 0 ? setIsOpen(true) : setIsOpen(false);
+
     return () => clearTimeout(timeoutId);
-  }, [input]);
+  }, [input, results.length]);
 
   const handleChange = (value) => {
     setInput(value);
   };
 
+  const handleContainerClick = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
+  };
+
   return (
     <>
-      <div className="searchbar">
+      <div className="searchbar" onClick={handleContainerClick}>
         <input
           type="search"
           placeholder="Search movie..."
           value={input}
           onChange={(e) => handleChange(e.target.value)}
         ></input>
-        {results.length > 0 ? <SearchResults results={results} /> : null}
+        {isOpen ? (
+          <SearchResults
+            results={results}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          />
+        ) : null}
       </div>
     </>
   );
