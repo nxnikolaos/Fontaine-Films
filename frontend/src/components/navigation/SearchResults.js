@@ -6,7 +6,6 @@ const SearchResults = ({ results, isOpen, setIsOpen }) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      console.log(containerRef.current);
       if (
         containerRef.current &&
         !containerRef.current.contains(event.target)
@@ -35,7 +34,7 @@ const SearchResults = ({ results, isOpen, setIsOpen }) => {
     <div ref={containerRef} className="search-results-container">
       <ul className="search-list">
         {results.map((result, id) => {
-          return <SearchItem result={result} key={id} />;
+          return <SearchItem setIsOpen={setIsOpen} result={result} key={id} />;
         })}
       </ul>
     </div>

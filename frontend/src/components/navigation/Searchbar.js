@@ -48,14 +48,9 @@ const Searchbar = () => {
     setInput(value);
   };
 
-  const handleContainerClick = () => {
-    setIsOpen(!isOpen);
-    console.log(isOpen);
-  };
-
   return (
     <>
-      <div className="searchbar" onClick={handleContainerClick}>
+      <div className="searchbar">
         <input
           type="search"
           placeholder="Search movie..."
