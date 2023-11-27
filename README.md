@@ -1,7 +1,7 @@
 # FontaineFilms : Based on the TMDB API.
 
-Movie database React application, using a proxy backend server to make API calls.
-Users are able to search and get any information they need on their movie of choice.
+Movie database React application, using a proxy backend server to make API calls.<br>
+Users are able to search and get information on a movie of their choice.
 
 # Table of Contents
 
