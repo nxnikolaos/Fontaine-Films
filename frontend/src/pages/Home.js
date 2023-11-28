@@ -18,8 +18,8 @@ const Home = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "/api/movies/theatres",
-      // url: "https://fontaine-films.onrender.com/api/movies/theatres",
+      // url: "/api/movies/theatres",
+      url: "https://fontaine-films.onrender.com/api/movies/theatres",
     })
       .then(function (response) {
         setInTheatres(response.data.results.slice(0, 9));
