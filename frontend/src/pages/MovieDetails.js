@@ -24,8 +24,8 @@ const MovieDetails = () => {
     };
     axios({
       method: "get",
-      url: `/api/movies/id`,
-      // url: `https://fontaine-films.onrender.com/api/movies/id`,
+      // url: `/api/movies/id`,
+      url: `https://fontaine-films.onrender.com/api/movies/id`,
       params: queryParams,
     })
       .then(function (response) {

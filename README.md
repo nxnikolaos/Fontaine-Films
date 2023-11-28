@@ -19,7 +19,7 @@ Users are able to search and get information on a movie of their choice.
 
 - [React](https://react.dev/)
 - [React Router](https://reactrouter.com/)
-- Backend Proxy Server
+- [Backend Proxy Server](#backend-proxy-server)
   - [Axios](https://axios-http.com/)
   - [Express](https://expressjs.com/)
   - [Dotenv](https://www.npmjs.com/package/dotenv)
@@ -47,3 +47,5 @@ Users are able to search and get information on a movie of their choice.
 ### Movie Details
 
 [MovieDetails Component](/frontend/src/pages/MovieDetails.js)
+
+# Backend Proxy Server
