@@ -30,6 +30,13 @@ PS. It takes a couple of seconds for the first request to load.
 
 # Architecture
 
+The application is split in two parts. The frontend and the backend.<br>
+Each part of the app is uploaded to GitHub as a single repo.<br>
+From there [Netlify](https://www.netlify.com/) is used to deploy the frontend part of the app(pulled from GitHub).<br>
+[Render](https://render.com/) hosts the backend part of app(also pulled from GitHub).
+
+![FontaineFilms - Architecture](/frontend/src/assets/images/architecture.png)
+
 # Components
 
 ## Global
