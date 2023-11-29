@@ -5,7 +5,7 @@ Users are able to search and get information on a movie of their choice.
 
 ## Preview the application : [FontaineFilms](https://fontaine-films.netlify.app/)
 
-PS. It takes a couple of seconds for the first request to load.
+PS. It takes a couple of seconds to load due to cold start.
 
 # Table of Contents
 
