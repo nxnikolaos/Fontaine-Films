@@ -1,4 +1,4 @@
-# FontaineFilms : Based on the TMDB API.
+# FontaineFilms : Based on the TMDB API.s
 
 Movie database React application, using a proxy backend server to make API calls.<br>
 Users are able to search and get information on a movie of their choice.
