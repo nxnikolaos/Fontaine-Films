@@ -19,6 +19,7 @@ const Navbar = () => {
             </Link>
           </div>
           <Searchbar />
+          <p>test</p>
           <Hamburger clicked={clicked} setClicked={setClicked} />
         </nav>
         {clicked ? <Menu /> : null}
